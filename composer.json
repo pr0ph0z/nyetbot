@@ -1,0 +1,16 @@
+{
+    "name": "pr0ph0z/nyetbot",
+    "description": "Lite SDK for LINE Bot API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamad Radisha",
+            "email": "pr0ph0z23@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4"
+    }
+}
