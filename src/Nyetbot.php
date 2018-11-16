@@ -52,27 +52,4 @@ class Nyetbot
 	{
 		return $this->api;
 	}
-
-	public function get($args = null)
-	{
-		if($args == null) {
-			$ch = curl_init($this->api);
-		}
-		else {
-			$ch = curl_init(vsprintf($this->api, $args));
-		}
-		curl_setopt($ch, CURLOPT_HTTPGET, true);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-			'Authorization: Bearer '.$this->channelAccessToken
-		));
-		
-		$result = curl_exec($ch);
-		if (curl_errno($ch)) {
-			error_log('Error:' . curl_error($ch));
-		}
-		curl_close($ch); 
-
-		return $result;
-	}
 }
