@@ -15,5 +15,10 @@
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nyetbot\\": "src/"
+        }
     }
 }
