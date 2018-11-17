@@ -78,10 +78,10 @@ class Nyetbot
 
 	private function post($body, $contentType = "application/json", $args = null){
 		if($args == null) {
-			$ch = curl_init($api);
+			$ch = curl_init($this->api);
 		}
 		else {
-			$ch = curl_init(vsprintf($api, $args));
+			$ch = curl_init(vsprintf($this->api, $args));
 		}
 		curl_setopt($ch, CURLOPT_POST, true); 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
