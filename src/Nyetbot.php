@@ -53,7 +53,7 @@ class Nyetbot
 		return $this->api;
 	}
 
-	public function get($args = null)
+	private function get($args = null)
 	{
 		if($args == null) {
 			$ch = curl_init($this->api);
