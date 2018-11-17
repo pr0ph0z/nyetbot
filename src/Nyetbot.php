@@ -75,4 +75,36 @@ class Nyetbot
 
 		return $result;
 	}
+
+	private function post($body, $contentType = "application/json", $args = null){
+		if($args == null) {
+			$ch = curl_init($api);
+		}
+		else {
+			$ch = curl_init(vsprintf($api, $args));
+		}
+		curl_setopt($ch, CURLOPT_POST, true); 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+		if($contentType !== "application/json") {
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+		}
+		else {
+			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
+		}
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array( 
+			'Content-Type: '.$contentType, 
+			'Authorization: Bearer '.$this->channelAccessToken
+		));
+		curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+		curl_setopt($ch, CURLOPT_VERBOSE, true);
+		
+		$result = curl_exec($ch);
+		if (curl_errno($ch)) {
+			error_log('Error:' . curl_error($ch));
+		}
+		curl_close($ch); 
+
+		return $result;
+	}
 }
