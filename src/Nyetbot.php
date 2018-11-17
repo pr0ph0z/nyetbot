@@ -107,4 +107,21 @@ class Nyetbot
 
 		return $result;
 	}
+
+	public function delete()
+	{
+		$ch = curl_init($this->api);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			'Authorization: Bearer '.$this->channelAccessToken
+		));
+		
+		$result = curl_exec($ch);
+		if (curl_errno($ch)) {
+			error_log('Error:' . curl_error($ch));
+		}
+		curl_close($ch); 
+
+		return $result;
+	}
 }
