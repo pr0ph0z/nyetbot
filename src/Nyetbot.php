@@ -124,4 +124,18 @@ class Nyetbot
 
 		return $result;
 	}
+
+	public function pushText($to, $text){
+		$body = array(
+		    'to' => $to,
+		    'messages' => [
+				array(
+					'type' => 'text',
+					'text' => $text
+				)
+		    ]
+		);
+
+		$this->post($body);
+	 }
 }
