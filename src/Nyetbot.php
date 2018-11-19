@@ -126,6 +126,7 @@ class Nyetbot
 	}
 
 	public function pushText($to, $text){
+		$this->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
 		    'to' => $to,
 		    'messages' => [
