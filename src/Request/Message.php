@@ -124,5 +124,37 @@ class Message
 		);
 
 		$this->bot->http->post($body);
+    }
+    
+    /**
+	 * Method to push a location message
+	 *
+	 * @param   string  $to         Line user ID of the target
+	 * @param   string  $title      Title of the location
+     * @param   string  $address    Address of the location
+     * @param   float   $latitude   Latitude of the location
+     * @param   float   $longitude  Longitude of the location
+     * @param mixed 
+	 * 
+	 * @since 0.0.1
+	 *
+	 * @return void
+	 */
+    public function pushLocation(string $to, string $title, string $address, float $latitude, float $longitude){
+		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
+		$body = array(
+			'to' => $to,
+			'messages' => [
+				array(
+					'type' => 'location',
+					'title' => $title,
+					'address' => $address,
+					'latitude' => $latitude,
+					'longitude' => $longitude
+				)
+			]
+		);
+
+		$this->bot->http->post($body);
 	}
 }

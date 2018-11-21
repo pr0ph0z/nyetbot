@@ -58,4 +58,18 @@ class MessageTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNull($s);
     }    
+
+    public function testPushLocation()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushLocation(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"),
+            "Institut Teknologi Bandung",
+            "Jl. Ganesha No.10, Lb. Siliwangi, Coblong, Kota Bandung, Jawa Barat 40132",
+            -6.8944857,
+            107.6031654
+        );
+
+        $this->assertNull($s);
+    }    
 }
