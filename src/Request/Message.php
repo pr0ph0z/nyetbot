@@ -110,7 +110,8 @@ class Message
 	 *
 	 * @return void
 	 */
-	public function pushAudio(string $to, string $audioUrl, int $duration){
+    public function pushAudio(string $to, string $audioUrl, int $duration)
+    {
 		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
 			'to' => $to,
@@ -140,7 +141,8 @@ class Message
 	 *
 	 * @return void
 	 */
-    public function pushLocation(string $to, string $title, string $address, float $latitude, float $longitude){
+    public function pushLocation(string $to, string $title, string $address, float $latitude, float $longitude)
+    {
 		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
 			'to' => $to,
