@@ -7,7 +7,13 @@ namespace Nyetbot\Request;
  * 
  * @package Request
  */
-class Message {
+class Message extends Nyetbot{
+
+    public function __construct()
+    {
+        $http = new Http();
+        $this->post = $http->post();
+    }
     
 	/**
 	 * Method to send a message without reply token (let's say it push).
