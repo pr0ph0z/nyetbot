@@ -71,5 +71,17 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->assertNull($s);
-    }    
+    }
+
+    public function testPushSticker()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushSticker(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"),
+            1,
+            1
+        );
+
+        $this->assertNull($s);
+    }
 }
