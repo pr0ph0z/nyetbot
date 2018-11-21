@@ -55,6 +55,7 @@ class Message
 	 */
      public function pushImage(string $to, string $imageUrl, string $previewImageUrl = null): void
      {
+		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
 			'to' => $to,
 			'messages' => [

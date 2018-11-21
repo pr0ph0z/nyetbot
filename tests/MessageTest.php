@@ -18,7 +18,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     public function testPushText()
     {
         $this->bot();
-        $s = $this->bot->message->pushText("Udeadbeefdeadbeefdeadbeefdeadbeef", "test");
+        $s = $this->bot->message->pushText(getenv("LINE_TEST_ID"), "test");
 
         $this->assertNull($s);
     }
@@ -27,7 +27,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     {
         $this->bot();
         $s = $this->bot->message->pushImage(
-            "Udeadbeefdeadbeefdeadbeefdeadbeef", 
+            getenv("LINE_TEST_ID"), 
             "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg", 
             "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg"
         );
