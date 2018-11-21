@@ -11,8 +11,8 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         $dotenv = new Dotenv(__DIR__.'/..');
         $dotenv->load();
         $this->bot = new Nyetbot();
-        $this->bot->setChannelAcessToken(getenv('LINE_CHANNEL_ACCESS_TOKEN', 'hkOwHN6F+lxKrW9XX/gR7yKNTkLpD0tMIe6D1N34CU4D56G9KVKvd7l21fNfv+ubE8B/kxx87JGw0fXPypyKf1zVTTHJlyEz6jz9cVEcdX2A1Hv8j72I0TXVjQAqZj0AyAcnH1V+E5CgzEEVQ+P7cQdB04t89/1O/w1cDnyilFU='));
-        $this->bot->setChannelSecret(getenv('LINE_CHANNEL_SECRET', ''));
+        $this->bot->setChannelAcessToken(getenv('LINE_CHANNEL_ACCESS_TOKEN'));
+        $this->bot->setChannelSecret(getenv('LINE_CHANNEL_SECRET'));
     }
 
     public function testPushText()
