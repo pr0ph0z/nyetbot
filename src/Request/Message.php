@@ -7,12 +7,11 @@ namespace Nyetbot\Request;
  * 
  * @package Request
  */
-class Message extends Nyetbot{
+class Message {
 
-    public function __construct()
+    public function __construct($parent)
     {
-        $http = new Http();
-        $this->post = $http->post();
+        $this->bot = $parent;
     }
     
 	/**
@@ -26,7 +25,7 @@ class Message extends Nyetbot{
 	 * @return void
 	 */
 	public function pushText(string $to, string $text){
-		$this->setApi("https://api.line.me/v2/bot/message/push");
+		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
 		    'to' => $to,
 		    'messages' => [
@@ -37,6 +36,6 @@ class Message extends Nyetbot{
 		    ]
 		);
 
-		$this->post($body);
+		$this->bot->http->post($body);
 	 }
 }

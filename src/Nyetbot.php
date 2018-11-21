@@ -14,17 +14,17 @@ class Nyetbot
 	/**
 	 * @var string $api 	This property will store API URL that has been set.
 	 */
-	protected $api;
+	public $api;
 
 	/**
 	 * @var string $channelAccessToken 	This property will store access token that has been set.
 	 */
-	protected $channelAccessToken;
+	public $channelAccessToken;
 
 	/**
 	 * @var string $channelSecret 	This property will store channel secret that has been set.
 	 */
-	protected $channelSecret;
+	public $channelSecret;
 
 	/**
 	 * You can optionally using constructor.
@@ -47,6 +47,9 @@ class Nyetbot
 		{
 			$this->channelSecret = $channelSecret;
 		}
+
+		$this->http = new Request\Http($this);
+		$this->message = new Request\Message($this);
 	}
 
 	/**

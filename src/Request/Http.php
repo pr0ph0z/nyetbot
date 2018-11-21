@@ -2,7 +2,12 @@
 
 namespace Nyetbot\Request;
 
-class Http extends Nyetbot{
+class Http {
+
+    public function __construct($parent)
+    {
+        $this->bot = $parent;
+    }
 
 	/**
 	 * Method to make an HTTP Request using GET method.
@@ -16,16 +21,16 @@ class Http extends Nyetbot{
 	{
 		if($args == null)
 		{
-			$ch = curl_init($this->api);
+			$ch = curl_init($this->bot->api);
 		}
 		else
 		{
-			$ch = curl_init(vsprintf($this->api, $args));
+			$ch = curl_init(vsprintf($this->bot->api, $args));
 		}
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-			'Authorization: Bearer '.$this->channelAccessToken
+			'Authorization: Bearer '.$this->bot->channelAccessToken
 		));
 		
 		$result = curl_exec($ch);
@@ -46,15 +51,15 @@ class Http extends Nyetbot{
 	 *
 	 * @return mixed
 	 */
-	protected function post($body = null, string $contentType = "application/json", array $args = null)
+	public function post($body, string $contentType = "application/json", array $args = null)
 	{
 		if($args == null)
 		{
-			$ch = curl_init($this->api);
+			$ch = curl_init($this->bot->api);
 		}
 		else
 		{
-			$ch = curl_init(vsprintf($this->api, $args));
+			$ch = curl_init(vsprintf($this->bot->api, $args));
 		}
 		curl_setopt($ch, CURLOPT_POST, true); 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
@@ -67,7 +72,7 @@ class Http extends Nyetbot{
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array( 
 			'Content-Type: '.$contentType, 
-			'Authorization: Bearer '.$this->channelAccessToken
+			'Authorization: Bearer '.$this->bot->channelAccessToken
 		));
 		curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 		curl_setopt($ch, CURLOPT_VERBOSE, true);
@@ -88,10 +93,10 @@ class Http extends Nyetbot{
 	 */
 	public function delete()
 	{
-		$ch = curl_init($this->api);
+		$ch = curl_init($this->bot->api);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-			'Authorization: Bearer '.$this->channelAccessToken
+			'Authorization: Bearer '.$this->bot->channelAccessToken
 		));
 		
 		$result = curl_exec($ch);

@@ -18,7 +18,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     public function testPushText()
     {
         $this->bot();
-        $s = $this->bot->pushText("Udeadbeefdeadbeefdeadbeefdeadbeef", "test");
+        $s = $this->bot->message->pushText("Udeadbeefdeadbeefdeadbeefdeadbeef", "test");
 
         $this->assertNull($s);
     }
