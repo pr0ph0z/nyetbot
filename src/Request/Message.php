@@ -45,7 +45,7 @@ class Message
 	 * Method to push a image message
 	 *
 	 * @param   string $to              Line user ID of the target
-	 * @param   string $imageUrl        URL of the image
+	 * @param   string $imageUrl        URL of the image (HTTPS)
      * @param   string $previewImageUrl Preview URL of the image to be displayed
      * @param mixed 
 	 * 
@@ -73,7 +73,7 @@ class Message
 	 * Method to push a video message
 	 *
 	 * @param   string $to              Line user ID of the target
-	 * @param   string $videoURL        URL of the video
+	 * @param   string $videoURL        URL of the video (HTTPS)
      * @param   string $previewImageUrl Preview URL of the image to be displayed
      * @param mixed 
 	 * 
@@ -96,5 +96,32 @@ class Message
 		);
 
 		$this->bot->http->post($body);
+    }
+    
+    /**
+	 * Method to push a audio message
+	 *
+	 * @param   string $to              Line user ID of the target
+	 * @param   string $videoURL        URL of the video (HTTPS)
+     * @param   string $previewImageUrl Preview URL of the image to be displayed
+     * @param mixed 
+	 * 
+	 * @since 0.0.1
+	 *
+	 * @return void
+	 */
+	public function pushAudio(string $to, string $audioUrl, int $duration){
+		$body = array(
+			'to' => $to,
+			'messages' => [
+				array(
+					'type' => 'audio',
+					'originalContentUrl' => $audioUrl,
+					'duration' => $duration
+				)
+			]
+		);
+
+		$this->push($body);
 	}
 }
