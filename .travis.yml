@@ -2,6 +2,9 @@ language: php
 php:
   - '7.1'
   - '7.2'
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 before_script: 
   - composer update
   - touch .env
