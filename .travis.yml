@@ -5,5 +5,5 @@ php:
 before_script: 
   - composer install
   - touch .env
-  - echo "LINE_CHANNEL_ACCESS_TOKEN=hkOwHN6F+lxKrW9XX/gR7yKNTkLpD0tMIe6D1N34CU4D56G9KVKvd7l21fNfv+ubE8B/kxx87JGw0fXPypyKf1zVTTHJlyEz6jz9cVEcdX2A1Hv8j72I0TXVjQAqZj0AyAcnH1V+E5CgzEEVQ+P7cQdB04t89/1O/w1cDnyilFU=" > .env
+  - echo "LINE_CHANNEL_ACCESS_TOKEN=$LINE_ACCESS_TOKEN" > .env
   - echo "LINE_CHANNEL_SECRET=" > .env
