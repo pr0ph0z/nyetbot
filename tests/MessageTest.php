@@ -18,8 +18,58 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     public function testPushText()
     {
         $this->bot();
-        $s = $this->bot->pushText("Udeadbeefdeadbeefdeadbeefdeadbeef", "test");
+        $s = $this->bot->message->pushText(getenv("LINE_TEST_ID"), "test");
 
         $this->assertNull($s);
     }
+
+    public function testPushImage()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushImage(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"), 
+            "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg", 
+            "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg"
+        );
+
+        $this->assertNull($s);
+    }
+
+    public function testPushVideo()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushVideo(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"), 
+            "https://static.videezy.com/system/resources/previews/000/002/361/original/blooming-cherry-tree.mp4", 
+            "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg"
+        );
+
+        $this->assertNull($s);
+    }
+
+    public function testPushAudio()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushAudio(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"), 
+            "https://cdn.online-convert.com/example-file/audio/m4a/example.m4a", 
+            36000
+        );
+
+        $this->assertNull($s);
+    }    
+
+    public function testPushLocation()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushLocation(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"),
+            "Institut Teknologi Bandung",
+            "Jl. Ganesha No.10, Lb. Siliwangi, Coblong, Kota Bandung, Jawa Barat 40132",
+            -6.8944857,
+            107.6031654
+        );
+
+        $this->assertNull($s);
+    }    
 }
