@@ -158,5 +158,32 @@ class Message
 		);
 
 		$this->bot->http->post($body);
-	}
+    }
+    
+    /**
+	 * Method to push a location message
+	 *
+	 * @param   string  $to         Line user ID of the target
+	 * @param   string  $packageId  Package sticker ID
+     * @param   string  $stickerId  Sticker ID
+     * @param mixed 
+	 * 
+	 * @since 0.0.1
+	 *
+	 * @return void
+	 */
+    public function pushSticker(string $to, string $packageId, string $stickerId)
+    {
+        $this->bot->setApi("https://api.line.me/v2/bot/message/push");
+        $body = array(
+            'to' => $to,
+            'messages' => [
+                array(
+                    'type' => 'sticker',
+                    'packageId' => $packageId,
+                    'stickerId' => $stickerId
+                )
+            ]
+        )
+    }
 }
