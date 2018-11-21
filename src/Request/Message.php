@@ -101,9 +101,9 @@ class Message
     /**
 	 * Method to push a audio message
 	 *
-	 * @param   string $to              Line user ID of the target
-	 * @param   string $videoURL        URL of the video (HTTPS)
-     * @param   string $previewImageUrl Preview URL of the image to be displayed
+	 * @param   string  $to         Line user ID of the target
+	 * @param   string  $audioUrl   URL of the video (HTTPS)
+     * @param   int     $duration   Duration of the audio (milliseconds)
      * @param mixed 
 	 * 
 	 * @since 0.0.1
@@ -111,6 +111,7 @@ class Message
 	 * @return void
 	 */
 	public function pushAudio(string $to, string $audioUrl, int $duration){
+		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
 			'to' => $to,
 			'messages' => [
@@ -122,6 +123,6 @@ class Message
 			]
 		);
 
-		$this->push($body);
+		$this->bot->http->post($body);
 	}
 }

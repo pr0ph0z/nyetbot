@@ -46,4 +46,16 @@ class MessageTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNull($s);
     }
+
+    public function testPushAudio()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushAudio(
+            getenv("LINE_TEST_ID", "Udeadbeefdeadbeefdeadbeefdeadbeef"), 
+            "https://cdn.online-convert.com/example-file/audio/m4a/example.m4a", 
+            36000
+        );
+
+        $this->assertNull($s);
+    }    
 }
