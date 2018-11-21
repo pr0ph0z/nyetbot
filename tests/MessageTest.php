@@ -34,4 +34,16 @@ class MessageTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNull($s);
     }
+
+    public function testPushVideo()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushVideo(
+            getenv("LINE_TEST_ID"), 
+            "https://static.videezy.com/system/resources/previews/000/002/361/original/blooming-cherry-tree.mp4", 
+            "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg"
+        );
+
+        $this->assertNull($s);
+    }
 }
