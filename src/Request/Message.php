@@ -93,6 +93,6 @@ class Message
 			]
 		);
 
-		$this->push($body);
+		$this->bot->http->post($body);
 	}
 }
