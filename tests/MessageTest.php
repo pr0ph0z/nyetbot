@@ -22,4 +22,16 @@ class MessageTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNull($s);
     }
+
+    public function testPushImage()
+    {
+        $this->bot();
+        $s = $this->bot->message->pushImage(
+            "Udeadbeefdeadbeefdeadbeefdeadbeef", 
+            "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg", 
+            "https://static.videezy.com/system/resources/thumbnails/000/002/361/original/blooming_cherry_tree.jpg"
+        );
+
+        $this->assertNull($s);
+    }
 }
