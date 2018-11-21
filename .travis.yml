@@ -4,9 +4,12 @@ php:
   - '7.2'
 cache:
   directories:
-    - $HOME/.composer/cache/files
+    - $HOME/.composer/cache
 before_script: 
   - composer update
   - touch .env
   - echo "LINE_CHANNEL_ACCESS_TOKEN=$LINE_ACCESS_TOKEN" > .env
   - echo "LINE_CHANNEL_SECRET=" > .env
+install:
+  - composer install
+script: vendor/bin/phpunit
