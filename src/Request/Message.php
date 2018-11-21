@@ -172,18 +172,20 @@ class Message
 	 *
 	 * @return void
 	 */
-    public function pushSticker(string $to, string $packageId, string $stickerId)
+    public function pushSticker($to, $packageId, $stickerId)
     {
         $this->bot->setApi("https://api.line.me/v2/bot/message/push");
         $body = array(
-            'to' => $to,
-            'messages' => [
+            'to'=> $to,
+            'messages'=> [
                 array(
-                    'type' => 'sticker',
-                    'packageId' => $packageId,
-                    'stickerId' => $stickerId
+                    'type'=> 'sticker',
+                    'packageId'=> $packageId,
+                    'stickerId'=> $stickerId
                 )
             ]
-        )
+        );
+
+        $this->bot->http->post($body);
     }
 }
