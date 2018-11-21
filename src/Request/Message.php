@@ -81,7 +81,7 @@ class Message
 	 *
 	 * @return void
 	 */
-    public function pushVideo($to, $videoUrl, $previewImageUrl): void
+    public function pushVideo(string $to, string $videoUrl, string $previewImageUrl = null): void
     {
 		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
 		$body = array(
