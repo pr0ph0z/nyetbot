@@ -11,7 +11,8 @@ namespace Nyetbot\Request;
  * @since 0.0.1
  * @package \Nyetbot\Request
  */
-class Http {
+class Http
+{
 
     /**
      * Constructor
