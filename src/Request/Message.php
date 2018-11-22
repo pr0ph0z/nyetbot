@@ -5,11 +5,10 @@ namespace Nyetbot\Request;
 /**
  * Message class based on Request
  * 
- * @package Request
+ * @package \Nyetbot\Request
  */
 class Message
 {
-
     public function __construct($parent)
     {
         $this->bot = $parent;

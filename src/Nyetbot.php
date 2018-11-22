@@ -1,14 +1,16 @@
 <?php
+
+namespace Nyetbot;
+
 /**
  * This is Nyetbot's parent class.
  * 
  * @author Mohamad Radisha (pr0ph0z23@gmail.com)
  * @license MIT
- * @version 0.0.1
+ * @version 0.1.0
+ * @since 0.0.0
+ * @package \Nyetbot
  */
-
-namespace Nyetbot;
-
 class Nyetbot
 {
 	/**
