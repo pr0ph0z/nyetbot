@@ -214,6 +214,8 @@ class Message
 	/**
 	 * Get message input from user
 	 *
+	 * @since 0.1.0
+	 * 
 	 * @return void
 	 */
 	public function getMessageText(): string
@@ -229,7 +231,7 @@ class Message
 	 *
 	 * @param  mixed $text	The message
 	 * 
-	 * @since 0.0.1
+	 * @since 0.1.0
 	 *
 	 * @return void
 	 */
