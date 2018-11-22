@@ -9,6 +9,23 @@ namespace Nyetbot\Request;
  */
 class Message
 {
+	/**
+	 * @var string PUSH_API URL of Push API
+	 */
+	private const PUSH_API = "https://api.line.me/v2/bot/message/push";
+
+	/**
+	 * @var string REPLY_API URL of Reply API
+	 */
+	private const REPLY_API = "https://api.line.me/v2/bot/message/reply";
+	
+    /**
+     * Constructor
+     *
+     * @param  mixed $parent
+     *
+     * @return void
+     */
     public function __construct($parent)
     {
         $this->bot = $parent;
