@@ -216,7 +216,8 @@ class Message
 	 *
 	 * @return void
 	 */
-	public function getMessageText(){
+	public function getMessageText(): string
+	{
 		$webhook = $this->webhookEventObject;
 		$messageText = $webhook->{"events"}[0]->{"message"}->{"text"}; 
 		
