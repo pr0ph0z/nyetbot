@@ -18,6 +18,10 @@ class Message
 	 * @var string REPLY_API URL of Reply API
 	 */
 	private const REPLY_API = "https://api.line.me/v2/bot/message/reply";
+
+	private $webhookResponse;
+
+	private $webhookEventObject;
 	
     /**
      * Constructor
@@ -29,6 +33,8 @@ class Message
     public function __construct($parent)
     {
         $this->bot = $parent;
+		$this->webhookResponse = file_get_contents('php://input');
+		$this->webhookEventObject = json_decode($this->webhookResponse);
     }
     
 	/**
@@ -203,5 +209,16 @@ class Message
         );
 
         $this->bot->http->post($body);
-    }
+	}
+
+	/**
+	 * Get message input from user
+	 *
+	 * @return void
+	 */
+	public function getMessageText(){
+		$webhook = $this->webhookEventObject;
+		$messageText = $webhook->{"events"}[0]->{"message"}->{"text"}; 
+		return $messageText;
+	}
 }
