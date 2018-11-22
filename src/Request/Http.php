@@ -2,8 +2,25 @@
 
 namespace Nyetbot\Request;
 
-class Http {
+/**
+ * Http class for handling http client
+ * 
+ * @author Mohamad Radisha (pr0ph0z23@gmail.com)
+ * @license MIT
+ * @version 0.1.0
+ * @since 0.0.1
+ * @package \Nyetbot\Request
+ */
+class Http
+{
 
+    /**
+     * Constructor
+     *
+     * @param  mixed $parent
+     *
+     * @return void
+     */
     public function __construct($parent)
     {
         $this->bot = $parent;

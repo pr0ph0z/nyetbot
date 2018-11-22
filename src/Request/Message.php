@@ -5,14 +5,36 @@ namespace Nyetbot\Request;
 /**
  * Message class based on Request
  * 
- * @package Request
+ * @package \Nyetbot\Request
  */
 class Message
 {
+	/**
+	 * @var string PUSH_API URL of Push API
+	 */
+	private const PUSH_API = "https://api.line.me/v2/bot/message/push";
 
+	/**
+	 * @var string REPLY_API URL of Reply API
+	 */
+	private const REPLY_API = "https://api.line.me/v2/bot/message/reply";
+
+	private $webhookResponse;
+
+	private $webhookEventObject;
+	
+    /**
+     * Constructor
+     *
+     * @param  mixed $parent
+     *
+     * @return void
+     */
     public function __construct($parent)
     {
         $this->bot = $parent;
+		$this->webhookResponse = file_get_contents('php://input');
+		$this->webhookEventObject = json_decode($this->webhookResponse);
     }
     
 	/**
@@ -187,5 +209,47 @@ class Message
         );
 
         $this->bot->http->post($body);
-    }
+	}
+
+	/**
+	 * Get message input from user
+	 *
+	 * @since 0.1.0
+	 * 
+	 * @return void
+	 */
+	public function getMessageText(): string
+	{
+		$webhook = $this->webhookEventObject;
+		$messageText = $webhook->{"events"}[0]->{"message"}->{"text"}; 
+		
+		return $messageText;
+	}
+    
+	/**
+	 * Method to reply a text message
+	 *
+	 * @param  mixed $text	The message
+	 * 
+	 * @since 0.1.0
+	 *
+	 * @return void
+	 */
+    public function replyText(string $text): void
+    {
+		$this->bot->setApi(self::REPLY_API);
+		$webhook = $this->webhookEventObject;
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"}; 
+		$body = array(
+		    'replyToken' => $replyToken,
+		    'messages' => [
+				array(
+					'type' => 'text',
+					'text' => $text
+				)
+		    ]
+		);
+
+		$this->bot->http->post($body);
+     }
 }
