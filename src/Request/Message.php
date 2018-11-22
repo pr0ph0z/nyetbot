@@ -219,6 +219,34 @@ class Message
 	public function getMessageText(){
 		$webhook = $this->webhookEventObject;
 		$messageText = $webhook->{"events"}[0]->{"message"}->{"text"}; 
+		
 		return $messageText;
 	}
+    
+	/**
+	 * Method to reply a text message
+	 *
+	 * @param  mixed $text	The message
+	 * 
+	 * @since 0.0.1
+	 *
+	 * @return void
+	 */
+    public function replyText(string $text): void
+    {
+		$this->bot->setApi(self::REPLY_API);
+		$webhook = $this->webhookEventObject;
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"}; 
+		$body = array(
+		    'replyToken' => $replyToken,
+		    'messages' => [
+				array(
+					'type' => 'text',
+					'text' => $text
+				)
+		    ]
+		);
+
+		$this->bot->http->post($body);
+     }
 }
