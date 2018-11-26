@@ -289,7 +289,7 @@ class Message
 	* @param   string $previewImageUrl Preview URL of the image to be displayed
 	* @param mixed 
 	* 
-	* @since 0.0.1
+	* @since 0.1.1
 	*
 	* @return void
 	*/
@@ -310,5 +310,36 @@ class Message
 		);
 
 		$this->bot->http->post($body);
+   }
+    
+   /**
+	* Method to reply a audio message
+	*
+	* @param   string  $to         Line user ID of the target
+	* @param   string  $audioUrl   URL of the video (HTTPS)
+	* @param   int     $duration   Duration of the audio (milliseconds)
+	* @param mixed 
+	* 
+	* @since 0.1.1
+	*
+	* @return void
+	*/
+   public function replyAudio(string $audioUrl, int $duration)
+   {
+		$this->bot->setApi(self::REPLY_API);
+		$webhook = $this->webhookEventObject;
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
+		$body = array(
+			'replyToken' => $replyToken,
+			'messages' => [
+				array(
+					'type' => 'audio',
+					'originalContentUrl' => $audioUrl,
+					'duration' => $duration
+				)
+			]
+		);
+
+	   $this->bot->http->post($body);
    }
 }
