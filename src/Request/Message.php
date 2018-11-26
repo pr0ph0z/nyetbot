@@ -376,4 +376,35 @@ class Message
 
 		$this->bot->http->post($body);
    }
+    
+   /**
+	* Method to reply a sticker message
+	*
+	* @param   string  $to         Line user ID of the target
+	* @param   string  $packageId  Package sticker ID
+	* @param   string  $stickerId  Sticker ID
+	* @param mixed 
+	* 
+	* @since 0.0.1
+	*
+	* @return void
+	*/
+   public function replySticker($packageId, $stickerId)
+   {
+		$this->bot->setApi(self::REPLY_API);
+		$webhook = $this->webhookEventObject;
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
+		$body = array(
+			'replyToken'=> $replyToken,
+			'messages'=> [
+				array(
+					'type'=> 'sticker',
+					'packageId'=> $packageId,
+					'stickerId'=> $stickerId
+				)
+			]
+		);
+
+		$this->bot->http->post($body);
+   }
 }
