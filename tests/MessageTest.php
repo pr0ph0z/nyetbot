@@ -84,14 +84,4 @@ class MessageTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNull($s);
     }
-
-    public function testGetProfile()
-    {
-        $this->bot();
-
-        $s = $this->bot->profile->getProfile("U74b3790aa73ad03017e8b8ee16cb5f23"); // this is my LINE ID lol
-        $s = json_decode($s, true);
-
-        $this->assertArrayHasKey('displayName', $s);
-    }
 }
