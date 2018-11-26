@@ -22,6 +22,11 @@ class Http
 	 * @var string REPLY_API URL of Reply API
 	 */
 	public const REPLY_API = "https://api.line.me/v2/bot/message/reply";
+	
+	/**
+	 * @var string PROFILE_API URL of Profile API
+	 */
+	public const PROFILE_API = "https://api.line.me/v2/bot/profile/%s";
 
     /**
      * Constructor
@@ -43,11 +48,11 @@ class Http
 	 *
 	 * @return mixed
 	 */
-	private function get(array $args = null)
+	public function get(array $args = null)
 	{
 		if($args == null)
 		{
-			$ch = curl_init($this->bot->api);
+			$ch = curl_init($this->bot->getApi());
 		}
 		else
 		{

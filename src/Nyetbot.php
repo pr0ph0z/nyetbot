@@ -52,6 +52,7 @@ class Nyetbot
 
 		$this->http = new Request\Http($this);
 		$this->message = new Request\Message($this);
+		$this->profile = new Request\Profile($this);
 	}
 
 	/**
