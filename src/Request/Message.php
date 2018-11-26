@@ -39,7 +39,7 @@ class Message
 	 */
     public function pushText(string $to, string $text): void
     {
-		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
+		$this->bot->setApi(Http::PUSH_API);
 		$body = array(
 		    'to' => $to,
 		    'messages' => [
@@ -67,7 +67,7 @@ class Message
 	 */
      public function pushImage(string $to, string $imageUrl, string $previewImageUrl = null): void
      {
-		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
+		$this->bot->setApi(Http::PUSH_API);
 		$body = array(
 			'to' => $to,
 			'messages' => [
@@ -95,7 +95,7 @@ class Message
 	 */
     public function pushVideo(string $to, string $videoUrl, string $previewImageUrl = null): void
     {
-		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
+		$this->bot->setApi(Http::PUSH_API);
 		$body = array(
 			'to' => $to,
 			'messages' => [
@@ -124,7 +124,7 @@ class Message
 	 */
     public function pushAudio(string $to, string $audioUrl, int $duration)
     {
-		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
+		$this->bot->setApi(Http::PUSH_API);
 		$body = array(
 			'to' => $to,
 			'messages' => [
@@ -155,7 +155,7 @@ class Message
 	 */
     public function pushLocation(string $to, string $title, string $address, float $latitude, float $longitude)
     {
-		$this->bot->setApi("https://api.line.me/v2/bot/message/push");
+		$this->bot->setApi(Http::PUSH_API);
 		$body = array(
 			'to' => $to,
 			'messages' => [
@@ -186,7 +186,7 @@ class Message
 	 */
     public function pushSticker($to, $packageId, $stickerId)
     {
-        $this->bot->setApi("https://api.line.me/v2/bot/message/push");
+        $this->bot->setApi(Http::PUSH_API);
         $body = array(
             'to'=> $to,
             'messages'=> [
@@ -227,7 +227,7 @@ class Message
 	 */
     public function replyText(string $text): void
     {
-		$this->bot->setApi(self::REPLY_API);
+		$this->bot->setApi(Http::REPLY_API);
 		$webhook = $this->webhookEventObject;
 		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
@@ -256,7 +256,7 @@ class Message
 	 */
 	public function replyImage(string $imageUrl, string $previewImageUrl = null): void
 	{
-		$this->bot->setApi(self::REPLY_API);
+		$this->bot->setApi(Http::REPLY_API);
 		$webhook = $this->webhookEventObject;
 		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
@@ -285,7 +285,7 @@ class Message
 	*/
    public function replyVideo(string $videoUrl, string $previewImageUrl = null): void
    {
-		$this->bot->setApi(self::REPLY_API);
+		$this->bot->setApi(Http::REPLY_API);
 		$webhook = $this->webhookEventObject;
 		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
@@ -316,7 +316,7 @@ class Message
 	*/
    public function replyAudio(string $audioUrl, int $duration)
    {
-		$this->bot->setApi(self::REPLY_API);
+		$this->bot->setApi(Http::REPLY_API);
 		$webhook = $this->webhookEventObject;
 		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
@@ -348,7 +348,7 @@ class Message
 	*/
    public function replyLocation(string $title, string $address, float $latitude, float $longitude)
    {
-		$this->bot->setApi(self::REPLY_API);
+		$this->bot->setApi(Http::REPLY_API);
 		$webhook = $this->webhookEventObject;
 		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
@@ -381,7 +381,7 @@ class Message
 	*/
    public function replySticker($packageId, $stickerId)
    {
-		$this->bot->setApi(self::REPLY_API);
+		$this->bot->setApi(Http::REPLY_API);
 		$webhook = $this->webhookEventObject;
 		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
