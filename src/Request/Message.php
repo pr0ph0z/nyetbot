@@ -385,7 +385,7 @@ class Message
 	* @param   string  $stickerId  Sticker ID
 	* @param mixed 
 	* 
-	* @since 0.0.1
+	* @since 0.1.1
 	*
 	* @return void
 	*/
