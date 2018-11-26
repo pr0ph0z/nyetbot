@@ -10,7 +10,7 @@ namespace Nyetbot\Request;
 class Profile
 {
     /**
-     * construct
+     * Constructor
      *
      * @param  mixed $parent
      *
@@ -22,9 +22,11 @@ class Profile
     }
     
     /**
-     * getProfile
+     * Get profile by LINE ID
      *
      * @param  mixed $userId
+     * 
+     * @since 0.1.1
      *
      * @return void
      */
