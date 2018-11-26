@@ -239,7 +239,7 @@ class Message
     {
 		$this->bot->setApi(self::REPLY_API);
 		$webhook = $this->webhookEventObject;
-		$replyToken = $webhook->{"events"}[0]->{"replyToken"}; 
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
 		$body = array(
 		    'replyToken' => $replyToken,
 		    'messages' => [
@@ -251,5 +251,34 @@ class Message
 		);
 
 		$this->bot->http->post($body);
-     }
+	 }
+	 
+	 /**
+	 * Method to reply a image message
+	 *
+	 * @param   string $imageUrl        URL of the image (HTTPS)
+     * @param   string $previewImageUrl Preview URL of the image to be displayed
+     * @param mixed 
+	 * 
+	 * @since 0.1.1
+	 *
+	 * @return void
+	 */
+	public function replyImage(string $imageUrl, string $previewImageUrl = null): void
+	{
+		$this->bot->setApi(self::REPLY_API);
+		$webhook = $this->webhookEventObject;
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
+		$body = array(
+			'replyToken' => $replyToken,
+			'messages' => [
+				array(
+					'type' => 'image',
+					'originalContentUrl' => $imageUrl,
+					'previewImageUrl' => $previewImageUrl ? $previewImageUrl : $imageUrl
+				)
+			]
+		);
+		$this->bot->http->post($body);
+   }
 }
