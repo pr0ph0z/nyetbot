@@ -13,6 +13,15 @@ namespace Nyetbot\Request;
  */
 class Http
 {
+	/**
+	 * @var string PUSH_API URL of Push API
+	 */
+	public const PUSH_API = "https://api.line.me/v2/bot/message/push";
+
+	/**
+	 * @var string REPLY_API URL of Reply API
+	 */
+	public const REPLY_API = "https://api.line.me/v2/bot/message/reply";
 
     /**
      * Constructor
