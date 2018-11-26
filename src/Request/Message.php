@@ -281,4 +281,34 @@ class Message
 		);
 		$this->bot->http->post($body);
    }
+
+   /**
+	* Method to reply a video message
+	*
+	* @param   string $videoURL        URL of the video (HTTPS)
+	* @param   string $previewImageUrl Preview URL of the image to be displayed
+	* @param mixed 
+	* 
+	* @since 0.0.1
+	*
+	* @return void
+	*/
+   public function replyVideo(string $videoUrl, string $previewImageUrl = null): void
+   {
+		$this->bot->setApi(self::REPLY_API);
+		$webhook = $this->webhookEventObject;
+		$replyToken = $webhook->{"events"}[0]->{"replyToken"};
+		$body = array(
+			'replyToken' => $replyToken,
+			'messages' => [
+				array(
+					'type' => 'video',
+					'originalContentUrl' => $videoUrl,
+					'previewImageUrl' => $previewImageUrl
+				)
+			]
+		);
+
+		$this->bot->http->post($body);
+   }
 }
