@@ -158,6 +158,18 @@ namespace Nyetbot\Request;
     {
         return ($this->webhookEventObject->{"events"}[0]->type === "accountLink" ? true : false);
     }
+
+    /**
+     * Determine is the event is things or not
+     *
+     * @since 0.2.0
+     * 
+     * @return void
+     */
+    public function isFollow(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "things" ? true : false);
+    }
  }
 
 ?>
