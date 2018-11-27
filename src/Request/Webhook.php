@@ -166,7 +166,7 @@ namespace Nyetbot\Request;
      * 
      * @return void
      */
-    public function isFollow(): bool
+    public function isThings(): bool
     {
         return ($this->webhookEventObject->{"events"}[0]->type === "things" ? true : false);
     }
