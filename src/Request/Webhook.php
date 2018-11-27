@@ -27,9 +27,14 @@ namespace Nyetbot\Request;
 		$this->webhookEventObject = json_decode($this->webhookResponse);
     }
 
+    /**
+     * Get event given by webhook
+     *
+     * @return void
+     */
     public function getEventType()
     {
-        return $this->webhookEventObject->{"events"};
+        return $this->webhookEventObject->{"events"}[0]->type;
     }
  }
 
