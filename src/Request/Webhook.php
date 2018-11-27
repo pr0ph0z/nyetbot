@@ -146,6 +146,18 @@ namespace Nyetbot\Request;
     {
         return ($this->webhookEventObject->{"events"}[0]->type === "beacon" ? true : false);
     }
+
+    /**
+     * Determine is the event is account linked or not
+     *
+     * @since 0.2.0
+     * 
+     * @return void
+     */
+    public function isAccountLink(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "accountLink" ? true : false);
+    }
  }
 
 ?>
