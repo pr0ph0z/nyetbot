@@ -98,6 +98,18 @@ namespace Nyetbot\Request;
     {
         return ($this->webhookEventObject->{"events"}[0]->type === "leave" ? true : false);
     }
+
+    /**
+     * Determine is the event is memberJoined or not
+     *
+     * @since 0.2.0
+     * 
+     * @return void
+     */
+    public function isMemberJoined(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "memberJoined" ? true : false);
+    }
  }
 
 ?>
