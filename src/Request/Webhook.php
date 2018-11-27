@@ -60,7 +60,19 @@ namespace Nyetbot\Request;
      */
     public function isFollow(): bool
     {
-        return ($this->webhookEventObject->{"events"}[0]->type === "message" ? true : false);
+        return ($this->webhookEventObject->{"events"}[0]->type === "follow" ? true : false);
+    }
+
+    /**
+     * Determine is the event is unfollow or not
+     *
+     * @since 0.2.0
+     * 
+     * @return void
+     */
+    public function isUnfollow(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "unfollow" ? true : false);
     }
  }
 
