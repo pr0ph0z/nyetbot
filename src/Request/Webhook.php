@@ -74,6 +74,18 @@ namespace Nyetbot\Request;
     {
         return ($this->webhookEventObject->{"events"}[0]->type === "unfollow" ? true : false);
     }
+
+    /**
+     * Determine is the event is join or not
+     *
+     * @since 0.2.0
+     * 
+     * @return void
+     */
+    public function isJoin(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "join" ? true : false);
+    }
  }
 
 ?>
