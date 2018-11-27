@@ -30,7 +30,9 @@ namespace Nyetbot\Request;
     /**
      * Get event given by webhook
      *
-     * @return void
+     * @since 0.2.0
+     * 
+     * @return string
      */
     public function getEventType(): string
     {
@@ -38,8 +40,10 @@ namespace Nyetbot\Request;
     }
 
     /**
-     * isMessage
+     * Determine is the event is message or not
      *
+     * @since 0.2.0
+     * 
      * @return void
      */
     public function isMessage(): bool
