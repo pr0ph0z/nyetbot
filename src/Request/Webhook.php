@@ -32,9 +32,19 @@ namespace Nyetbot\Request;
      *
      * @return void
      */
-    public function getEventType()
+    public function getEventType(): string
     {
         return $this->webhookEventObject->{"events"}[0]->type;
+    }
+
+    /**
+     * isMessage
+     *
+     * @return void
+     */
+    public function isMessage(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "message" ? true : false);
     }
  }
 
