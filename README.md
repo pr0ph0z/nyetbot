@@ -1,4 +1,4 @@
-# Nyetbot ![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg) [![Build Status](https://travis-ci.com/pr0ph0z/nyetbot.svg?branch=master)](https://travis-ci.com/pr0ph0z/nyetbot) ![compatible](https://img.shields.io/badge/PHP%207-Compatible-brightgreen.svg) ![DUB](https://img.shields.io/dub/l/vibe-d.svg)
+# Nyetbot ![Version](https://img.shields.io/badge/version-0.2.1-brightgreen.svg) [![Build Status](https://travis-ci.com/pr0ph0z/nyetbot.svg?branch=master)](https://travis-ci.com/pr0ph0z/nyetbot) ![compatible](https://img.shields.io/badge/PHP%207-Compatible-brightgreen.svg) ![DUB](https://img.shields.io/dub/l/vibe-d.svg)
 LINE Messaging API SDK Lite for PHP.
 
 ----------
