@@ -100,7 +100,7 @@ namespace Nyetbot\Request;
     }
 
     /**
-     * Determine is the event is memberJoined or not
+     * Determine is the event is member was joined or not
      *
      * @since 0.2.0
      * 
@@ -112,7 +112,7 @@ namespace Nyetbot\Request;
     }
 
     /**
-     * Determine is the event is memberLeft or not
+     * Determine is the event is member was left or not
      *
      * @since 0.2.0
      * 
