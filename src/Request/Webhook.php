@@ -134,6 +134,18 @@ namespace Nyetbot\Request;
     {
         return ($this->webhookEventObject->{"events"}[0]->type === "postback" ? true : false);
     }
+
+    /**
+     * Determine is the event is beacon or not
+     *
+     * @since 0.2.0
+     * 
+     * @return void
+     */
+    public function beacon(): bool
+    {
+        return ($this->webhookEventObject->{"events"}[0]->type === "beacon" ? true : false);
+    }
  }
 
 ?>
