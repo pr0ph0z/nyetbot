@@ -206,7 +206,7 @@ class Message
 	 *
 	 * @since 0.1.0
 	 * 
-	 * @return void
+	 * @return string
 	 */
 	public function getMessageText(): string
 	{
