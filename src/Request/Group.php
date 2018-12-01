@@ -30,8 +30,13 @@ class Group {
      */
     public function getMemberId(string $groupId): string
     {
-        $this->bot->setApi(Http::GROUP_API);
+        $this->bot->setApi(Http::GROUP_MEMBER_ID_API);
 
         return $this->bot->http->get(array($groupId));
+    }
+
+    public function getMemberProfile(string $groupId, string $userId): string
+    {
+        
     }
 }
