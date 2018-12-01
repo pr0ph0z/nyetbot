@@ -21,6 +21,13 @@ class Group {
         $this->bot = $parent;
     }
 
+    /**
+     * Get member IDs in group. This feature only available for LINE@ Approved accounts
+     *
+     * @param  mixed $groupId
+     *
+     * @return string
+     */
     public function getMemberId(string $groupId): string
     {
         $this->bot->setApi(Http::GROUP_API);
