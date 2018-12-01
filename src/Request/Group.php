@@ -20,4 +20,11 @@ class Group {
     {
         $this->bot = $parent;
     }
+
+    public function getMemberId(string $groupId): string
+    {
+        $this->bot->setApi(Http::GROUP_API);
+
+        return $this->bot->http->get(array($groupId));
+    }
 }
