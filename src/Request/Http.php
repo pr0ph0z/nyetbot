@@ -27,6 +27,11 @@ class Http
 	 * @var string PROFILE_API URL of Profile API
 	 */
 	public const PROFILE_API = "https://api.line.me/v2/bot/profile/%s";
+	
+	/**
+	 * @var string PROFILE_API URL of Group API
+	 */
+	public const GROUP_API = "https://api.line.me/v2/bot/group/%s/members/ids";
 
     /**
      * Constructor

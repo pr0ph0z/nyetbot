@@ -9,4 +9,15 @@ namespace Nyetbot\Request;
  */
 class Group {
     
+    /**
+     * Constructor
+     *
+     * @param  mixed $parent
+     *
+     * @return void
+     */
+    public function __construct($parent)
+    {
+        $this->bot = $parent;
+    }
 }
