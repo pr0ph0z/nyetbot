@@ -25,6 +25,8 @@ class Group {
      * Get member IDs in group. This feature only available for LINE@ Approved accounts
      *
      * @param  mixed $groupId
+     * 
+     * @since 0.2.2
      *
      * @return string
      */
@@ -40,6 +42,8 @@ class Group {
      *
      * @param  mixed $groupId
      * @param  mixed $userId
+     * 
+     * @since 0.2.2
      *
      * @return string
      */
@@ -54,6 +58,8 @@ class Group {
      * Leave group method
      *
      * @param  mixed $groupId
+     * 
+     * @since 0.2.2
      *
      * @return void
      */
