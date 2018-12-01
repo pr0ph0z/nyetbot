@@ -52,6 +52,8 @@ class Group {
 
     public function leaveGroup(string $groupId)
     {
-        # code...
+        $this->bot->setApi(Http::LEAVE_GROUP_API);
+
+        return $this->bot->http->post(null, "application/json", array($groupId));
     }
 }
