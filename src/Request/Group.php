@@ -50,6 +50,13 @@ class Group {
         return $this->bot->http->get(array($groupId, $userId));
     }
 
+    /**
+     * Leave group method
+     *
+     * @param  mixed $groupId
+     *
+     * @return void
+     */
     public function leaveGroup(string $groupId)
     {
         $this->bot->setApi(Http::LEAVE_GROUP_API);
