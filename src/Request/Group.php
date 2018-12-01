@@ -49,4 +49,9 @@ class Group {
 
         return $this->bot->http->get(array($groupId, $userId));
     }
+
+    public function leaveGroup(string $groupId)
+    {
+        # code...
+    }
 }
