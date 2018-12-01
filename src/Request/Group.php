@@ -37,6 +37,8 @@ class Group {
 
     public function getMemberProfile(string $groupId, string $userId): string
     {
-        
+        $this->bot->setApi(Http::GROUP_MEMBER_PROFILE_API);
+
+        return $this->bot->http->get(array($groupId, $userId));
     }
 }
