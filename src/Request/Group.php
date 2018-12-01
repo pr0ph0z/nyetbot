@@ -35,6 +35,14 @@ class Group {
         return $this->bot->http->get(array($groupId));
     }
 
+    /**
+     * Get member profile in group.
+     *
+     * @param  mixed $groupId
+     * @param  mixed $userId
+     *
+     * @return string
+     */
     public function getMemberProfile(string $groupId, string $userId): string
     {
         $this->bot->setApi(Http::GROUP_MEMBER_PROFILE_API);
