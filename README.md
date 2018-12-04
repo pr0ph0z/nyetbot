@@ -36,3 +36,7 @@ LINE_TEST_ID is optional. You can fill it with your line ID if you want to do a 
 ## Examples
 
 All examples can be found [here](https://github.com/pr0ph0z/nyetbot/tree/dev/examples)
+
+## Contribute
+
+Contributing are welcome. Just clone this repo, and make a pull request.
