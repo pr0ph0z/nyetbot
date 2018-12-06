@@ -32,7 +32,7 @@ class Room {
      */
     public function getMemberId(string $roomId): string
     {
-        $this->bot->setApi(Http::GROUP_MEMBER_ID_API);
+        $this->bot->setApi(Http::ROOM_MEMBER_ID_API);
 
         return $this->bot->http->get(array($roomId));
     }
