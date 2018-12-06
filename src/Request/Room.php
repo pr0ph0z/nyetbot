@@ -26,7 +26,7 @@ class Room {
      *
      * @param  mixed $roomId
      * 
-     * @since 0.2.2
+     * @since 0.2.3
      *
      * @return string
      */
@@ -43,7 +43,7 @@ class Room {
      * @param  mixed $roomId
      * @param  mixed $userId
      * 
-     * @since 0.2.2
+     * @since 0.2.3
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class Room {
      *
      * @param  mixed $roomId
      * 
-     * @since 0.2.2
+     * @since 0.2.3
      *
      * @return void
      */
