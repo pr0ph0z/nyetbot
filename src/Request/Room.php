@@ -8,5 +8,16 @@ namespace Nyetbot\Request;
  * @package \Nyetbot\Request
  */
 class Room {
-
+    
+    /**
+     * Constructor
+     *
+     * @param  mixed $parent
+     *
+     * @return void
+     */
+    public function __construct($parent)
+    {
+        $this->bot = $parent;
+    }
 }
