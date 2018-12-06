@@ -53,4 +53,20 @@ class Room {
 
         return $this->bot->http->get(array($roomId, $userId));
     }
+
+    /**
+     * Leave room method
+     *
+     * @param  mixed $roomId
+     * 
+     * @since 0.2.2
+     *
+     * @return void
+     */
+    public function leaveRoom(string $roomId)
+    {
+        $this->bot->setApi(Http::LEAVE_ROOM_API);
+
+        return $this->bot->http->post(null, "application/json", array($roomId));
+    }
 }
