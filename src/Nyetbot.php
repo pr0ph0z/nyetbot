@@ -54,6 +54,7 @@ class Nyetbot
 		$this->http = new Request\Http($this);
 		$this->message = new Request\Message($this);
 		$this->profile = new Request\Profile($this);
+		$this->room = new Request\Room($this);
 		$this->webhook = new Request\Webhook($this);
 	}
 
