@@ -42,6 +42,11 @@ class Http
 	 * @var string LEAVE_GROUP URL of Leave group API
 	 */
 	public const LEAVE_GROUP_API = "https://api.line.me/v2/bot/group/%s/leave";
+	
+	/**
+	 * @var string ROOM_MEMBER_ID_API URL of Room API
+	 */
+	public const ROOM_MEMBER_ID_API = "https://api.line.me/v2/bot/room/%s/members/ids";
 
     /**
      * Constructor
