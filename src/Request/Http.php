@@ -47,6 +47,11 @@ class Http
 	 * @var string ROOM_MEMBER_ID_API URL of Room API
 	 */
 	public const ROOM_MEMBER_ID_API = "https://api.line.me/v2/bot/room/%s/members/ids";
+	
+	/**
+	 * @var string ROOM_MEMBER_PROFILE_API URL of Room API
+	 */
+	public const ROOM_MEMBER_PROFILE_API = "https://api.line.me/v2/bot/room/%s/member/%s";
 
     /**
      * Constructor
