@@ -39,7 +39,7 @@ class Http
 	public const GROUP_MEMBER_PROFILE_API = "https://api.line.me/v2/bot/group/%s/member/%s";
 	
 	/**
-	 * @var string LEAVE_GROUP URL of Leave group API
+	 * @var string LEAVE_GROUP URL of Leave Group API
 	 */
 	public const LEAVE_GROUP_API = "https://api.line.me/v2/bot/group/%s/leave";
 	
@@ -52,6 +52,11 @@ class Http
 	 * @var string ROOM_MEMBER_PROFILE_API URL of Room API
 	 */
 	public const ROOM_MEMBER_PROFILE_API = "https://api.line.me/v2/bot/room/%s/member/%s";
+	
+	/**
+	 * @var string LEAVE_ROOM URL of Leave Room API
+	 */
+	public const LEAVE_ROOM_API = "https://api.line.me/v2/bot/room/%s/leave";
 
     /**
      * Constructor
